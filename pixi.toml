@@ -18,6 +18,9 @@ mountain_car_test = "EPISODES=150 IS_TRAINING=false python3 mountain_car_q.py > 
 cartpole_train = "IS_TRAINING=true python3 cartpole_q.py > cartpole_train.out"
 cartpole_test = "IS_TRAINING=false RENDER=true python3 cartpole_q.py > cartpole_test.out"
 
+acrobot_train = "IS_TRAINING=true python3 acrobot_q.py > acrobot_train.out"
+acrobot_test = "IS_TRAINING=false RENDER=false python3 acrobot_q.py > acrobot_test.out"
+
 [system-requirements]
 cuda = "12.0"
 

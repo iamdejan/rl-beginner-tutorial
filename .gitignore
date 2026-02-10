@@ -5,6 +5,7 @@
 # Training result files
 *.png
 *.out
+acrobot.npy
 
 # Created by https://www.toptal.com/developers/gitignore/api/python,visualstudiocode,pycharm+all,windows,linux,macos,vim,emacs
 # Edit at https://www.toptal.com/developers/gitignore?templates=python,visualstudiocode,pycharm+all,windows,linux,macos,vim,emacs
