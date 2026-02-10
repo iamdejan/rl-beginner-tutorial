@@ -7,17 +7,15 @@ from matplotlib import pyplot as plt
 PREFIX = r"mountain_car"
 Q_NPY_FILE_NAME = PREFIX + ".npy"
 SEED = 1770648564
+SEGMENTS = 20
 
 
 def run(episodes: int, is_training: bool = True, render: bool = False):
     env = gym.make("MountainCar-v0", render_mode="human" if render else None)
 
     # Divide positions and velocity into segments
-    print("env.observation_space = ", env.observation_space)
-    print("env.observation_space.low = ", env.observation_space.low)
-    print("env.observation_space.high = ", env.observation_space.high)
-    pos_space = np.linspace(env.observation_space.low[0], env.observation_space.high[0], 20)  # between -1.2 and 0.6
-    vel_space = np.linspace(env.observation_space.low[1], env.observation_space.high[1], 20)  # between -0.07 and 0.7
+    pos_space = np.linspace(env.observation_space.low[0], env.observation_space.high[0], SEGMENTS)  # between -1.2 and 0.6
+    vel_space = np.linspace(env.observation_space.low[1], env.observation_space.high[1], SEGMENTS)  # between -0.07 and 0.7
 
     if is_training:
         q = np.zeros(shape=(len(pos_space), len(vel_space), env.action_space.n))

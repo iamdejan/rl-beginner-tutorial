@@ -15,6 +15,9 @@ taxi_test = "EPISODES=150 IS_TRAINING=false python3 taxi_q.py > taxi_v3_test.out
 mountain_car_train = "EPISODES=10000 IS_TRAINING=true python3 mountain_car_q.py > mountain_car_train.out"
 mountain_car_test = "EPISODES=150 IS_TRAINING=false python3 mountain_car_q.py > mountain_car_test.out"
 
+cartpole_train = "IS_TRAINING=true python3 cartpole_q.py > cartpole_train.out"
+cartpole_test = "IS_TRAINING=false RENDER=true python3 cartpole_q.py > cartpole_test.out"
+
 [system-requirements]
 cuda = "12.0"
 
