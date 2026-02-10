@@ -1,0 +1,30 @@
+[workspace]
+authors = ["Giovanni Dejan <giovanni.dejan@binus.ac.id>"]
+channels = ["conda-forge"]
+name = "rl-beginner-tutorial"
+platforms = ["linux-64"]
+version = "0.1.0"
+
+[tasks]
+frozen_lake8x8_train = "EPISODES=100000 IS_TRAINING=true python3 frozen_lake8x8_q.py > frozen_lake8x8_train.out"
+frozen_lake8x8_test = "EPISODES=150 IS_TRAINING=false python3 frozen_lake8x8_q.py > frozen_lake8x8_test.out"
+
+taxi_train = "EPISODES=150000 IS_TRAINING=true python3 taxi_q.py > taxi_v3_train.out"
+taxi_test = "EPISODES=150 IS_TRAINING=false python3 taxi_q.py > taxi_v3_test.out"
+
+mountain_car_train = "EPISODES=10000 IS_TRAINING=true python3 mountain_car_q.py > mountain_car_train.out"
+mountain_car_test = "EPISODES=150 IS_TRAINING=false python3 mountain_car_q.py > mountain_car_test.out"
+
+[system-requirements]
+cuda = "12.0"
+
+[dependencies]
+python = ">=3.13,<3.14"
+pytorch-gpu = "*"
+cuda-version = "12.8.*"
+gymnasium-all = ">=1.2.3,<2"
+matplotlib = ">=3.10.8,<4"
+pygame = ">=2.6.1,<3"
+
+[pypi-dependencies]
+pyqt6 = ">=6.9.1, <7"
