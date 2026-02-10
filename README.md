@@ -1,6 +1,6 @@
 # Reinforcement Learning Beginner Tutorial
 
-This is my attempt to learn reinforcement learning as a beginner.
+This is my attempt to learn reinforcement learning as a beginner. The curriculum is based on [johnnycode8/gym_solutions](https://github.com/johnnycode8/gym_solutions), but I might add a few code and resources to help me learn the concept.
 
 ## Prerequisites
 
