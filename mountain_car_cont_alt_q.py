@@ -4,7 +4,7 @@ import gymnasium as gym
 import numpy as np
 from matplotlib import pyplot as plt
 
-PREFIX = r"mountain_car_cont"
+PREFIX = r"mountain_car_cont_alt"
 Q_NPY_FILE_NAME = PREFIX + ".npy"
 SEED = 1770648564
 
@@ -30,7 +30,6 @@ def run(is_training: bool = True, render: bool = False):
 
     # Divide action space into discrete elements
     act_space = np.linspace(env.action_space.low[0], env.action_space.high[0], act_divisions, endpoint=False)  # Between [-1, 1]
-    act_lookup_space = np.append(act_space, 1)
 
     if is_training:
         q = np.zeros(
@@ -64,7 +63,7 @@ def run(is_training: bool = True, render: bool = False):
                 action_idx = np.digitize(action, act_space)
             else:
                 action_idx = np.argmax(q[state_p, state_v, :])
-                action = act_lookup_space[action_idx]
+                action = act_space[action_idx - 1]
 
             # Execute action
             new_state, reward, terminated, _, _ = env.step([action])
@@ -114,6 +113,7 @@ def run(is_training: bool = True, render: bool = False):
         mean_rewards.append(np.mean(rewards_per_episode[max(0, t - 100) : (t + 1)]))
     plt.plot(mean_rewards)
 
+    # draw plot only if it's training
     if is_training:
         plot_file_name = PREFIX + "_train.png"
         plt.savefig(plot_file_name)
