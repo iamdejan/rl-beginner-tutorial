@@ -21,6 +21,9 @@ cartpole_test = "IS_TRAINING=false RENDER=true python3 cartpole_q.py > cartpole_
 acrobot_train = "IS_TRAINING=true python3 acrobot_q.py > acrobot_train.out"
 acrobot_test = "IS_TRAINING=false RENDER=false python3 acrobot_q.py > acrobot_test.out"
 
+pendulum_train = "IS_TRAINING=true python3 pendulum_q.py > pendulum_train.out"
+pendulum_test = "IS_TRAINING=false RENDER=false python3 pendulum_q.py > pendulum_test.out"
+
 [system-requirements]
 cuda = "12.0"
 

@@ -109,7 +109,7 @@ def run(is_training: bool = True, render: bool = False):
             mean_reward = np.mean(rewards_per_episode[len(rewards_per_episode) - 100 :])
             print(f"Episode: {i}, Epsilon: {epsilon:0.2f}, Best Reward: {best_reward:0.1f}, Mean Rewards {mean_reward:0.1f}")
         elif not is_training:
-            print(f"Episode: {i} Rewards: {rewards:0.1f}")
+            print(f"Episode: {i}, Rewards: {rewards:0.1f}")
 
         # Stop if solved
         if best_reward > env.spec.reward_threshold:
