@@ -113,6 +113,7 @@ def run(is_training: bool = True, render: bool = False):
     else:
         plot_file_name = PREFIX + "_test.png"
     plt.savefig(plot_file_name)
+    plt.clf()
 
     plt.plot(epsilon_history)
     if is_training:

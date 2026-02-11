@@ -24,8 +24,8 @@ acrobot_test = "IS_TRAINING=false RENDER=false python3 acrobot_q.py > acrobot_te
 pendulum_train = "IS_TRAINING=true python3 pendulum_q.py > pendulum_train.out"
 pendulum_test = "IS_TRAINING=false RENDER=false python3 pendulum_q.py > pendulum_test.out"
 
-mountain_car_cont_train = "IS_TRAINING=true python3 mountain_car_cont_q.py > mountain_car_cont_train.out"
-mountain_car_cont_test = "IS_TRAINING=false RENDER=false python3 mountain_car_cont_q.py > mountain_car_cont_test.out"
+mountain_car_cont_train = "IS_TRAINING=true python3 mountain_car_cont_q.py"
+mountain_car_cont_test = "IS_TRAINING=false RENDER=false python3 mountain_car_cont_q.py"
 
 [system-requirements]
 cuda = "12.0"
