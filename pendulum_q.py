@@ -44,7 +44,7 @@ def run(is_training: bool = True, render: bool = False):
     i = 0
 
     while True:
-        state = env.reset()[0]
+        state = env.reset(seed=SEED)[0]
 
         s_i0 = np.digitize(state[0], x)
         s_i1 = np.digitize(state[1], y)
@@ -55,7 +55,7 @@ def run(is_training: bool = True, render: bool = False):
 
         while steps < 1000 or is_training is False:
             if is_training and np.random.rand() < epsilon:
-                action = env.action_space.sample()
+                action = env.action_space.sample()[0]
                 action_idx = np.digitize(action, a)
             else:
                 action_idx = np.argmax(q[s_i0, s_i1, s_i2, :])
@@ -100,15 +100,16 @@ def run(is_training: bool = True, render: bool = False):
 
         epsilon = max(epsilon - epsilon_decay_rate, epsilon_min)
 
-        # print(f"Episode {i} ends")
+        print(f"Episode {i} ends")
         i += 1
 
 
 def main():
     np.random.seed(SEED)
 
-    is_training: bool = os.getenv("IS_TRAINING") == "true"
-    render: bool = os.getenv("RENDER") == "true"
+    is_training: bool = "true" == os.getenv("IS_TRAINING")
+    render: bool = "true" == os.getenv("RENDER")
+
     run(is_training=is_training, render=render)
 
 

@@ -113,8 +113,8 @@ def run(is_training: bool = True, render: bool = False):
 def main():
     np.random.seed(SEED)
 
-    is_training: bool = os.getenv("IS_TRAINING") == "true"
-    render: bool = os.getenv("RENDER") == "true"
+    is_training: bool = "true" == os.getenv("IS_TRAINING")
+    render: bool = "true" == os.getenv("RENDER")
 
     run(is_training=is_training, render=render)
 

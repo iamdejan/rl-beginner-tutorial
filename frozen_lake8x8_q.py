@@ -77,8 +77,8 @@ def main():
     np.random.seed(SEED)
 
     episodes: int = int(os.getenv("EPISODES"))
-    is_training: bool = os.getenv("IS_TRAINING") == "true"
-    render: bool = os.getenv("RENDER") == "true"
+    is_training: bool = "true" == os.getenv("IS_TRAINING")
+    render: bool = "true" == os.getenv("RENDER")
 
     run(episodes=episodes, is_training=is_training, render=render)
 
