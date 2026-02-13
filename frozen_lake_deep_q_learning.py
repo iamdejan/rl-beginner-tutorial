@@ -45,6 +45,18 @@ class DQN(nn.Module):
             nn.Linear(h1_nodes, out_actions),
         )
 
+        self._init_weights()
+
+    def _init_weights(self):
+        # Iterate through the layers in the Sequential model
+        for layer in self.model:
+            if isinstance(layer, nn.Linear):
+                nn.init.kaiming_uniform_(layer.weight, nonlinearity="relu")
+
+                # Good practice: initialize bias to 0
+                if layer.bias is not None:
+                    nn.init.constant_(layer.bias, 0)
+
     def forward(self, x):
         return self.model(x)
 
@@ -222,9 +234,6 @@ class FrozenLakeDQL:
             q_values = ""
             dqn_input_tensor = self.state_to_dqn_input(s, num_states).to()
             qs = dqn(dqn_input_tensor.to(DEVICE, copy=True)).detach().cpu().tolist()
-            # for q in qs:
-            #     q_values += "{:+.2f}".format(q) + " "
-            # q_values = q_values.rstrip()
             q_values = " ".join(["{:+.2f}".format(q) for q in qs]).rstrip()
 
             # Map the best action
