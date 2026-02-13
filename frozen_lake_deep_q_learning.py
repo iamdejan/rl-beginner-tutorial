@@ -247,6 +247,8 @@ class FrozenLakeDQL:
 
     def test(self, episodes: int, render: bool = False, is_slippery: bool = False):
         env = gym.make("FrozenLake-v1", map_name="4x4", is_slippery=is_slippery, render_mode="human" if render else None)
+        env.observation_space.seed(SEED)
+        env.action_space.seed(SEED)
         num_states = env.observation_space.n
         num_actions = env.action_space.n
 
