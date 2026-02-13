@@ -30,6 +30,8 @@ mountain_car_cont_test = "IS_TRAINING=false RENDER=false python3 mountain_car_co
 mountain_car_cont_alt_train = "IS_TRAINING=true python3 mountain_car_cont_alt_q.py > mountain_car_cont_alt_train.out"
 mountain_car_cont_alt_test = "IS_TRAINING=false RENDER=false python3 mountain_car_cont_alt_q.py > mountain_car_cont_alt_test.out"
 
+frozen_lake_deep_q_learning = "IS_SLIPPERY=true python3 frozen_lake_deep_q_learning.py > frozen_lake_deep_q_learning.out"
+
 [system-requirements]
 cuda = "12.0"
 

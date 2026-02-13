@@ -279,10 +279,11 @@ class FrozenLakeDQL:
 def main():
     set_seed(SEED)
 
+    is_slippery: bool = "true" == os.getenv("IS_SLIPPERY")
+
     frozen_lake = FrozenLakeDQL()
-    is_slippery = False
-    frozen_lake.train(1000, is_slippery=is_slippery)
-    frozen_lake.test(100, is_slippery=is_slippery)
+    frozen_lake.train(episodes=5000, is_slippery=is_slippery)
+    frozen_lake.test(episodes=5, render=True, is_slippery=is_slippery)
 
 
 if __name__ == "__main__":
